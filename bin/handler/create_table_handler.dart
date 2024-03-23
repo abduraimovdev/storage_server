@@ -1,10 +1,12 @@
-
 part of '../router/router.dart';
-Future<Response> _createTableHandler(Request req) async{
+
+Future<Response> _createTableHandler(Request req) async {
+  final String body = await req.readAsString();
+  await infoLogWrite(req, body);
   try {
-  final sqlReq =   jsonDecode(await req.readAsString()) as Map;
-  db.execute(sqlReq["sql"]);
-  return Response.ok("Successfully created table request : ${sqlReq["sql"]}");
+    final sqlReq = jsonDecode(body) as Map;
+    db.execute(sqlReq["sql"]);
+    return Response.ok("Successfully created table request : ${sqlReq["sql"]}");
   } catch (e, s) {
     print("Error : $e");
     print("Stack : $s");

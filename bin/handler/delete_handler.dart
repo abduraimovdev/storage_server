@@ -1,8 +1,10 @@
 part of '../router/router.dart';
 
 Future<Response> _deleteHandler(Request req) async {
+  final String body = await req.readAsString();
+  await infoLogWrite(req, body);
   try {
-    final sqlReq = jsonDecode(await req.readAsString()) as Map;
+    final sqlReq = jsonDecode(body) as Map;
     db.execute(sqlReq["sql"]);
     return Response.ok("Successfully deleted ");
   } catch (e, s) {

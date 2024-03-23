@@ -1,8 +1,10 @@
 part of '../router/router.dart';
 
 Future<Response> _insertHandler(Request req) async{
+  final String body = await req.readAsString();
+  await infoLogWrite(req, body);
   try {
-  final sqlReq =   jsonDecode(await req.readAsString())["sql"];
+  final sqlReq =   jsonDecode(body)["sql"];
   final stmt = db.prepare(sqlReq);
   stmt.execute();
   stmt.dispose();

@@ -1,8 +1,10 @@
 part of '../router/router.dart';
 
 Future<Response> _selectHandler(Request req) async {
+  final String body = await req.readAsString();
+  await infoLogWrite(req, body);
   try {
-    final sqlReq = jsonDecode(await req.readAsString()) as Map;
+    final sqlReq = jsonDecode(body) as Map;
     final result = db.select(sqlReq["sql"]);
     final response = {
       "data": result.toList().map((e) => e.toString()).toList(),
