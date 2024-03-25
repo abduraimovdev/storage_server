@@ -1,0 +1,26 @@
+
+##################################################################################  
+Number : 0
+
+"Error" : SqliteException(1): table artists already exists
+  Causing statement: CREATE TABLE artists (id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL);,
+
+----------------------------------------------------------------------------------
+"StackTrace" : #0      DatabaseImpl.execute (package:sqlite3/src/impl/database.dart:129:9)
+#1      _createTableHandler (file:///Users/abduraimov/StudioProjects/storage_server.dart/bin/handler/create_table_handler.dart:8:8)
+<asynchronous suspension>
+#2      RouterEntry.invoke.<anonymous closure> (package:shelf_router/src/router_entry.dart:107:16)
+<asynchronous suspension>
+#3      RouterEntry.invoke (package:shelf_router/src/router_entry.dart:104:12)
+<asynchronous suspension>
+#4      Router.call (package:shelf_router/src/router.dart:184:26)
+<asynchronous suspension>
+#5      logRequests.<anonymous closure>.<anonymous closure>.<anonymous closure> (package:shelf/src/middleware/logger.dart:30:62)
+<asynchronous suspension>
+#6      handleRequest (package:shelf/shelf_io.dart:138:16)
+<asynchronous suspension>
+,
+##################################################################################
+
+
+  

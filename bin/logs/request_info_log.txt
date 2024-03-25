@@ -14,4 +14,20 @@ Request : POST  create-table/
 },
 ##################################################################################
 
+  ##################################################################################
+Number : 1,
+
+Request : POST  create-table/
+**********************************************************************************
+"Header" : {user-agent: [PostmanRuntime/7.37.0], connection: [keep-alive], accept: [*/*], cache-control: [no-cache], postman-token: [af401ccf-f1db-4d98-9818-efb89477808e], accept-encoding: [gzip, deflate, br], content-length: [93], host: [0.0.0.0:8080], content-type: [application/json]},
+
+----------------------------------------------------------------------------------
+"Params" : {},
+
+----------------------------------------------------------------------------------
+"Body" : {
+    "sql" : "CREATE TABLE artists (id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL);"
+},
+##################################################################################
+
   
